@@ -69,3 +69,13 @@ pred_dt = dt.predict(x_test)
 print(classification_report(y_test, pred_dt))
 cross_val = cross_val_score(estimator=dt, X=x_train, y=y_train, cv=10)
 print (cross_val.mean()*100)
+
+
+#Stochastic Gradient Descent
+
+sgd = SGDClassifier()
+sgd.fit(x_train, y_train)
+pred_sgd = sgd.predict(x_test)
+print(classification_report(y_test, pred_sgd))
+cross_val = cross_val_score(estimator=sgd, X=x_train, y=y_train, cv=10)
+print (cross_val.mean()*100)
