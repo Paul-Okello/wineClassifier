@@ -61,4 +61,11 @@ print(classification_report(y_test, pred_rf))
 cross_val = cross_val_score(estimator=rf, X=x_train, y=y_train, cv=10)
 print (cross_val.mean()*100)
 
+#Decision Tree Classifier
 
+dt = DecisionTreeClassifier()
+dt.fit(x_train, y_train)
+pred_dt = dt.predict(x_test)
+print(classification_report(y_test, pred_dt))
+cross_val = cross_val_score(estimator=dt, X=x_train, y=y_train, cv=10)
+print (cross_val.mean()*100)
