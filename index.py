@@ -13,5 +13,17 @@ from sklearn.model_selection import RandomizedSearchCV, cross_val_score
 
 
 #Reading the data
-df = pd.read_csv("w")
+df = pd.read_csv("winequality-white.csv", delimiter=";")
+df.head()
+print(df.head())
 
+#Visual Analysis of the 🍷 
+
+for label in df.columns[:-1]:
+   #for label in  ["alcohol"]:
+    plt.boxplot([df[df['quality'] == i][label] for i in range(1,11)]) 
+    plt.title(label)
+    plt.xlabel("Quality")
+    plt.ylabel(label)
+    plt.savefig("imgs/"+"white".join(label.split(" ")))
+    plt.show()
