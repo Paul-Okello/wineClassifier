@@ -43,3 +43,13 @@ x_train, x_test, y_train, y_test = train_test_split(x,y ,test_size=.2, random_st
 
 for data in (y_train, y_test):
     print(data.describe())
+    
+#Classification of the data(K Nearest Neighbour)
+
+n3 = KNeighborsClassifier(n_neighbors=3)
+n3.fit(x_train, y_train)
+pred_n3 = n3.predict(x_test)
+print(classification_report(y_test, pred_n3))
+cross_val = cross_val_score(estimator=n3, X=x_train, y=y_train, cv=10)
+print(cross_val.mean()*100)
+
