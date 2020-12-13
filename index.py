@@ -53,3 +53,12 @@ print(classification_report(y_test, pred_n3))
 cross_val = cross_val_score(estimator=n3, X=x_train, y=y_train, cv=10)
 print(cross_val.mean()*100)
 
+#Random Forest Classifier
+rf = RandomForestClassifier()
+rf.fit(x_train, y_train)
+pred_rf = rf.predict(x_test)
+print(classification_report(y_test, pred_rf))
+cross_val = cross_val_score(estimator=rf, X=x_train, y=y_train, cv=10)
+print (cross_val.mean()*100)
+
+
